@@ -2,14 +2,20 @@
 title: "PA1_template"
 author: "Jeff Smith"
 date: "January 9, 2016"
-output: html_document
-keep_md: true
+output:
+  html_document:
+    keep_md: yes
+
 ---
 
 
+```{r, 'setup', echo = FALSE, cache = FALSE}
+<<opts_chunk$set(dev=c('pdf','png'), fig.path='figures/')>>
+```
 
 ### Load required libraries
 ```{r,message = FALSE}
+
 library("dplyr");
 
 library("ggplot2")
