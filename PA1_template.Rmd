@@ -5,7 +5,6 @@ date: "January 9, 2016"
 output:
   html_document:
     keep_md: yes
-
 ---
 
 
@@ -44,7 +43,7 @@ actday<-summarize(group_by(activity, date), steps=sum(steps))
 
 ### Histogram of Total Number of Steps Taken Each Day
 
-```{r, echo=FALSE, message=FALSE}
+```{r, echo=TRUE, message=FALSE}
 h <-ggplot(actday, aes(steps))
 h +
       geom_histogram(color = "white") +
@@ -60,7 +59,7 @@ h +
 ### Calcualte the Mean and Median Steps per day
  
 The mean of the total number of steps is `r median(actday$steps)`.
-```{r, echo=FALSE}
+```{r, echo=TRUE}
  paste("The mean of the total number of steps is:", round(mean(actday$steps),2))
 ```
 *note: When using the inline code, it did not display the mean in the proper format.  It would display `r round(mean(actday$steps),2) `.*
@@ -76,7 +75,7 @@ maxstep<-filter(actint,avgsteps == max(actint$avgsteps))
 
 
 ### Create line plot average steps per interval
-```{r, echo=FALSE}
+```{r, echo=TRUE}
 i <-ggplot(actint, aes(x=interval, y=avgsteps))
 i +
       geom_line()   +
@@ -120,7 +119,7 @@ adjday<-summarize(group_by(compdata, date), steps=sum(steps))
 
 ## Histogram with Estimated Total Number of Steps Taken Each Day
 
-```{r, echo=FALSE, message = FALSE}
+```{r, echo=TRUE, message = FALSE}
 a <-ggplot(adjday, aes(steps))
 a +
       geom_histogram(color = "white", fill = "blue") +
@@ -157,7 +156,7 @@ wkint<-summarize(group_by(compdata, daytype, interval), avgsteps=mean(steps) )
 
 
 ### Create line plot average steps per interval
-```{r, echo=FALSE, message = FALSE}
+```{r, echo=TRUE, message = FALSE}
 w <-ggplot(wkint, aes(x=interval, y=avgsteps))
 w +
       geom_line()   +
